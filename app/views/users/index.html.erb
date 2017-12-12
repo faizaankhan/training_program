@@ -1,0 +1,26 @@
+<div class="candidates index">
+  <h2>List of Candidates</h2>
+
+  <%= link_to("Add New Candidate", new_user_path , :class => 'action new') %>
+
+  <table class="listing" summary="Candidates Enrolled for Training Program">
+    <tr class="header">
+      <th>Candidates</th>
+      <th>Email</th>
+      <th>College</th>
+      <th>Actions</th>
+    </tr>
+    <% @candidates.each do |candidate| %>
+    <tr>
+      <td><%= candidate.name %></td>
+      <td><%= candidate.email %></td>
+      <td><%= candidate.college %></td>
+      <td class="actions">
+        <%= link_to("Show", user_path(candidate.id) , :class => 'action show') %>
+        <%= link_to("Edit", edit_user_path(candidate.id), :class => 'action edit') %>
+        <%= link_to("Delete", delete_user_path(candidate.id) , :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

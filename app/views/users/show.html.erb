@@ -1,0 +1,41 @@
+<%= link_to("<< Back to List", users_path, :class => 'back-link') %>
+
+<div class="candidate show">
+  <h2>Show Candidate</h2>
+
+  <table summary="Candidate's Detailed Profile">
+    <tr>
+      <th>Name</th>
+      <td><%= @candidate.name %></td>
+    </tr>
+    <tr>
+      <th>Email Id</th>
+      <td><%= @candidate.email %></td>
+    </tr>
+    <tr>
+      <th>Qualification</th>
+      <td><%= @candidate.qualification %></td>
+    </tr>
+    <tr>
+      <th>College</th>
+      <td><%= @candidate.college %></td>
+    </tr>
+    <tr>
+      <th>Stream</th>
+      <td><%= @candidate.stream %></td>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <td><%= @candidate.phone %></td>
+    </tr>    
+    <tr>
+      <th>Created</th>
+      <td><%= @candidate.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @candidate.updated_at %></td>
+    </tr>
+  </table>
+
+</div>
