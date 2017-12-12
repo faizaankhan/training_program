@@ -18,14 +18,8 @@ ActiveRecord::Schema.define(version: 20171211114018) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "question_papers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "exam_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "question_paper_id"
+    t.integer "exam_id"
     t.text "question_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
