@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 20171211114018) do
 
   create_table "exams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "exam_name", limit: 50
-    t.integer "question_paper_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
