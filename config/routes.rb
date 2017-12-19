@@ -10,6 +10,14 @@ Rails.application.routes.draw do
     member do
       get :delete
       get :associate
+      put :associate_update
+
+    end
+  end
+
+  resources :results do
+    member do
+      get :delete
     end
   end
 
