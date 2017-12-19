@@ -1,0 +1,23 @@
+<div class="associate">
+  <h2>Associate Candidates for <%=@exam_name%> Examination </h2>
+
+  <table class="listing" summary="Candidates Enrolled for Training Program">
+    <tr class="header">
+      <th>Candidates</th>
+      <th>Email</th>
+      <th>College</th>
+      <th>Select</th>
+    </tr>
+    <% @candidates.each do |candidate| %>
+    <tr>
+      <td><%= candidate.name %></td>
+      <td><%= candidate.email %></td>
+      <td><%= candidate.college %></td>
+      <td class="actions">
+        <input type="checkbox" name="a_candidate" value="<%=candidate.id%>%">
+        send exam.id candidate.id 
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

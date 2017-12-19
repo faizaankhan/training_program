@@ -1,0 +1,26 @@
+<div class="exams index">
+  <h2>List of Exams</h2>
+
+  <%= link_to("Add New Exam", new_exam_path , :class => 'action new') %>
+
+  <table class="listing" summary="Exams Created for Training Program">
+    <tr class="header">
+      <th>Exam Id</th>
+      <th>Exam Name</th>
+      <th>Actions</th>
+    </tr>
+    <% @exams.each do |exam| %>
+    <tr>
+      <td><%= exam.id %></td>
+      <td><%= exam.exam_name %></td>
+      <td class="actions">
+        <%= link_to("Show", "#" , :class => 'action show') %>
+        <%= link_to("Edit", "#", :class => 'action edit') %>
+        <%= link_to("Delete", "#" , :class => 'action delete') %>
+        <%= link_to("Add Questions", "#" , :class => 'action delete') %>
+        <%= link_to("Associate", associate_exam_path(exam.id, exam_name: exam.exam_name) , :class => 'action associate') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

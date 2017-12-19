@@ -1,0 +1,26 @@
+<%= link_to("<< Back to List", exams_path, :class => 'back-link') %>
+
+<div class="exam new">
+  <h2>Add New Exam</h2>
+    <%= form_for @exam do |f| %>
+    Exam Name: 
+    <%= f.text_field(:exam_name) %>
+    <ul>
+     <!-- <li>
+       
+        <%= f.fields_for :addresses do |addresses_form| %>
+        <li>
+            <%= addresses_form.label :kind %>
+            <%= addresses_form.text_field :kind %>
+    
+            <%= addresses_form.label :street %>
+            <%= addresses_form.text_field :street %>
+            ...
+        </li> -->
+        <% end %>
+    </ul>
+      <div class="form-buttons">
+      <%= f.submit("Create Exam") %>
+    </div>
+    <% end %>
+</div>
