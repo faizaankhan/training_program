@@ -17,7 +17,7 @@
         <%= link_to("Show", "#" , :class => 'action show') %>
         <%= link_to("Edit", "#", :class => 'action edit') %>
         <%= link_to("Delete", "#" , :class => 'action delete') %>
-        <%= link_to("Add Questions", "#" , :class => 'action delete') %>
+        <%= link_to("Add Questions", new_question_path(exam_id: exam.id, exam_name: exam.exam_name) , :class => 'action delete') %>
         <%= link_to("Associate", associate_exam_path(exam.id, exam_name: exam.exam_name) , :class => 'action associate') %>
       </td>
     </tr>

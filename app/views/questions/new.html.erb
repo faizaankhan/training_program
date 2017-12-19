@@ -1,2 +1,14 @@
-<h1>Questions#new</h1>
-<p>Find me in app/views/questions/new.html.erb</p>
+<div class="New Question">
+  <h2>Create questions for <%=@exam_name%> ID = <%=@exam_id%> examination </h2>
+  
+   <%= form_for(@question, :url => questions_path, :method => 'post') do |f| %>
+       
+        <h3>Enter your question here :<h3>
+        <%= f.hidden_field :exam_id, :value =>@exam_id %>
+        <%= f.text_area :question_description, :cols => "100", :rows => "10" %>
+  
+    <div class="form-buttons">
+      <%= f.submit("Submit") %>
+    </div>
+<% end %>
+</div>
