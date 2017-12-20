@@ -1,5 +1,11 @@
 class ResultsController < ApplicationController
   def index
+    #retrieve the user
+    puts params
+    user = User.find(params[:user_id])
+    #Get all the exams associated with the user
+    @exams = user.exams
+    @results = user.results
   end
 
   def show
@@ -11,7 +17,7 @@ class ResultsController < ApplicationController
   def edit
   end
 
-  def delete
+  def delete 
   end
   
   def create 

@@ -18,6 +18,7 @@
       <td class="actions">
         <%= link_to("Edit", edit_user_path(candidate.id), :class => 'action edit') %>
         <%= link_to("Delete", delete_user_path(candidate.id) , :class => 'action delete') %>
+        <%= link_to("Update Result", user_results_path(candidate.id) , :class => 'action delete') %>
       </td>
     </tr>
     <% end %>

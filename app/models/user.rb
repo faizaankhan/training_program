@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-    has_many :exams, :through => :results
+    has_many :results, dependent: :destroy
+    has_many :exams, through: :results
+    accepts_nested_attributes_for :results
 
     scope :visible, lambda { where(:visible => true) }
     scope :invisible, lambda { where(:visible => false) }

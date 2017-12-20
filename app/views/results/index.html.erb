@@ -1,2 +1,28 @@
-<h1>Results#index</h1>
-<p>Find me in app/views/results/index.html.erb</p>
+<%= link_to("<< Back to List", users_path, :class => 'back-link') %>
+
+<table class="listing" summary="Exams Associated with the candidate">
+    <tr class="header">
+      <th>Exam Name</th>
+      <th>Marks</th>
+      <th>Result</th>
+      <th>Comments</th>
+      <th>Answer Sheets</th>
+      <th> Actions</th>
+    </tr>
+    <% @results.each do |result| %>
+    <tr>
+      <td><%= result.exam.exam_name%></td>
+      <td><%= result.marks%></td>
+      <td><%= result.results%></td>
+      <td><%= result.comments%></td>
+      <td>
+      <%= link_to("View", "#", :class => 'action delete') %>
+        <%= link_to("Upload", "#", :class => 'action delete') %>
+      </td>
+      <td class="actions">
+        <%= link_to("Update", "#", :class => 'action edit') %>
+        
+      </td>
+    </tr>
+    <% end %>
+  </table>
