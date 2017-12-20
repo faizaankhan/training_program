@@ -12,13 +12,13 @@
     <% @exams.each do |exam| %>
     <tr>
       <td><%= exam.id %></td>
-      <td><%= exam.exam_name %></td>
+      <td><%= link_to(exam.exam_name , question_paper_exam_path(exam.id) , :class => 'action view-question-paper') %></td>
       <td class="actions">
-        <%= link_to("Show", "#" , :class => 'action show') %>
-        <%= link_to("Edit", "#", :class => 'action edit') %>
-        <%= link_to("Delete", "#" , :class => 'action delete') %>
-        <%= link_to("Add Questions", new_question_path(exam_id: exam.id, exam_name: exam.exam_name) , :class => 'action delete') %>
+        <%= link_to("Questions", exam_path(exam.id) , :class => 'action show') %>
         <%= link_to("Associate", associate_exam_path(exam.id, exam_name: exam.exam_name) , :class => 'action associate') %>
+        <%= link_to 'Delete', exam_path(exam.id) , :class => 'action delete',
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
       </td>
     </tr>
     <% end %>

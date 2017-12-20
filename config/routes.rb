@@ -11,8 +11,11 @@ Rails.application.routes.draw do
       get :delete
       get :associate
       put :associate_update
+      get :question_paper
 
     end
+
+    resources :questions
   end
 
   resources :results do
@@ -21,11 +24,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :questions do
-    member do
-      get :delete
-    end
-  end
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

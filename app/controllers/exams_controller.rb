@@ -5,10 +5,15 @@ class ExamsController < ApplicationController
   end
 
   def show
+    @exam = Exam.find(params[:id])
+  end
+
+  def question_paper
+    @exam = Exam.find(params[:id])
   end
 
   def new
-    @exam= Exam.new
+    @exam = Exam.new
   end
 
   def create
@@ -26,6 +31,13 @@ class ExamsController < ApplicationController
   end
 
   def delete
+    
+  end
+
+  def destroy 
+    @exam = Exam.find(params[:id])
+    @exam.destroy
+    redirect_to (exams_path)
   end
 
   def associate

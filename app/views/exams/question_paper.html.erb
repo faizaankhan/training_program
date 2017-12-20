@@ -1,7 +1,5 @@
 <%= link_to("<< Back to List", exams_path, :class => 'back-link') %>
 <h2>Questions for <%=@exam.exam_name%> Examination </h2>
-
-<h2>Questions</h2>
 <% @Qno=1 %>
 <% @exam.questions.each do |question| %>
   <p>
@@ -9,10 +7,4 @@
     <%= question.question_description %>
     <%@Qno=@Qno+1%>
   </p>
-  <%= link_to 'Remove', [question.exam, question],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
 <% end %>
-
-<h2>Add a question:</h2>
-<%= render 'questions/form' %>
