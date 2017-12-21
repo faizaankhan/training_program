@@ -7,14 +7,31 @@ class ResultsController < ApplicationController
     @exams = user.exams
     @results = user.results
   end
-
   def show
+  end
+  def view
+    puts "I reach here"
+    @user = User.find(params[:user_id])
+    @exam = Exam.find(params[:exam_id])
+    @result = Result.where(exam_id: @exam.id).where(user_id: @user.id).take
+    
   end
 
   def new
   end
 
   def edit
+    
+  end
+
+  def update
+    @result = Result.find(params[:id])
+    if @result.update_attributes(result_params)
+      flash[:notice] = "Updation Successful."
+      redirect_to(user_results_path(@result.user_id))
+    else
+      render('edit')
+    end
   end
 
   def delete 
@@ -36,4 +53,11 @@ class ResultsController < ApplicationController
       end
       redirect_to exams_path
   end
+
+  private
+  
+    def result_params
+      #Whitelisting for strng parameters
+      params.require(:result).permit(:marks, :results, :comments)
+    end
 end

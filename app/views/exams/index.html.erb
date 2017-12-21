@@ -15,7 +15,7 @@
       <td><%= link_to(exam.exam_name , question_paper_exam_path(exam.id) , :class => 'action view-question-paper') %></td>
       <td class="actions">
         <%= link_to("Questions", exam_path(exam.id) , :class => 'action show') %>
-        <%= link_to("Associate", associate_exam_path(exam.id, exam_name: exam.exam_name) , :class => 'action associate') %>
+        <%= link_to("Associate", associate_exam_path(exam.id) , :class => 'action associate') %>
         <%= link_to 'Delete', exam_path(exam.id) , :class => 'action delete',
                method: :delete,
                data: { confirm: 'Are you sure?' } %>

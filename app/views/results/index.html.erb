@@ -20,7 +20,7 @@
         <%= link_to("Upload", "#", :class => 'action delete') %>
       </td>
       <td class="actions">
-        <%= link_to("Update", "#", :class => 'action edit') %>
+        <%= link_to("Update", view_user_results_path(user_id: result.user.id, exam_id: result.exam.id) , :class => 'action edit') %>
         
       </td>
     </tr>

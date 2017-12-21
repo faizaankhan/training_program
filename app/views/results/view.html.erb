@@ -1,0 +1,32 @@
+<%= link_to("<< Back to List", results_path, :class => 'back-link') %>
+
+<div class="Result Update">
+  <h2>Update Result of <%@user.name%> for <%@exam.exam_name%> Examination</h2>
+
+  <%= form_for(@result) do |f| %>
+
+    <table summary="Results form fields">
+      <tr>
+        <th>Marks</th>
+        <td><%= f.text_field(:marks) %></td>
+      </tr>
+      <tr>
+        <th>Result</th>
+        <td><%= f.text_field(:results) %></td>
+      </tr>
+       <tr>
+        <th>Comments</th>
+        <td><%= f.text_area(:comments) %></td>
+      </tr>
+       <tr>
+        <th>Upload Answer Sheet</th>
+        <td>UPLOAD BUTTON HERE</td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Update Result") %>
+    </div>
+
+  <% end %>
+</div>

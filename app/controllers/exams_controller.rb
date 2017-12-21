@@ -42,8 +42,7 @@ class ExamsController < ApplicationController
 
   def associate
     @candidates = User.where(admin_user: false)
-    @exam_id = params[:id]
-    @exam_name = params[:exam_name]
+    @exam = Exam.find(params[:id])
   end
 
   private

@@ -1,8 +1,8 @@
 <%= link_to("<< Back to List", exams_path, :class => 'back-link') %>
 <div class="associate">
-  <h2>Associate Candidates for <%=@exam_name%> Examination </h2>
+  <h2>Associate Candidates for <%=@exam.exam_name%> Examination </h2>
 
-  <%= form_tag(results_path(exam_id: @exam_id), method: :post)  do  %>
+  <%= form_tag(results_path(exam_id: @exam.id), method: :post)  do  %>
   <table class="listing" summary="Candidates Enrolled for Training Program">
     <tr class="header">
       <th>Candidates</th>
