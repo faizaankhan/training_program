@@ -1,26 +1,34 @@
-<%= link_to("<< Back to List", results_path, :class => 'back-link') %>
+<%= link_to("<< Back to List", results_path(user_id: @user.id), :class => 'back-link') %>
 
 <div class="Result Update">
   <h2>Update Result of <%@user.name%> for <%@exam.exam_name%> Examination</h2>
 
-  <%= form_for(@result) do |f| %>
+  <%= form_for @result, :html =>{ :multipart => true } do |f| %>
 
     <table summary="Results form fields">
       <tr>
         <th>Marks</th>
         <td><%= f.text_field(:marks) %></td>
       </tr>
+      
       <tr>
         <th>Result</th>
-        <td><%= f.text_field(:results) %></td>
+        <td>
+        <%= f.select(:results) do %>
+          <% [['Pass', 'Pass'], ['Fail', 'Fail']].each do |c| -%>
+            <%= content_tag(:option, c.first, value: c.last) %>
+          <% end %>
+        <% end %>
+        </td>
       </tr>
-       <tr>
+
+      <tr>
         <th>Comments</th>
-        <td><%= f.text_area(:comments) %></td>
+        <td><%= f.text_area :comments, :cols => "60", :rows => "7"%></td>
       </tr>
        <tr>
         <th>Upload Answer Sheet</th>
-        <td>UPLOAD BUTTON HERE</td>
+        <td><%= f.file_field :attach %></td>
       </tr>
     </table>
 

@@ -58,6 +58,6 @@ class ResultsController < ApplicationController
   
     def result_params
       #Whitelisting for strng parameters
-      params.require(:result).permit(:marks, :results, :comments)
+      params.require(:result).permit(:marks, :results, :comments, :attach)
     end
 end
