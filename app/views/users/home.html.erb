@@ -19,8 +19,9 @@
         <td>
         <%if result.attach.present?%>
           <%=link_to "View Answersheet", result.attach.url, target: "_blank" , :class => 'btn btn-info' %>
+          <%= link_to("View Question Paper", question_paper_exam_path(result.exam.id) , :class => "btn btn-primary") %>
         <%else%>
-          <%= link_to("Appear Now", question_paper_exam_path(result.exam.id) , :class => "btn btn-primary") %>
+          <%= link_to("View Question Paper", question_paper_exam_path(result.exam.id) , :class => "btn btn-primary") %>
         <%end%>
         </td>
       </tr>

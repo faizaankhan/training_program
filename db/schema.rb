@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20171221101725) do
     t.integer "user_id", null: false
     t.integer "exam_id", null: false
     t.string "answersheet"
-    t.integer "marks"
+    t.float "marks", limit: 24
     t.string "results"
     t.text "comments"
     t.datetime "created_at", null: false

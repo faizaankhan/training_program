@@ -12,7 +12,7 @@
       <%elsif logged_in?%>
         <%= link_to "Training@Kreeti", home_path, id: "logo" %>
       <%else%>
-        <%= link_to "Training@Kreeti", login_path, id: "logo" %>
+        <%= link_to "Training@Kreeti", root_path, id: "logo" %>
       <%end%>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -36,7 +36,7 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Log in", login_path %></li>
+            <li><%= link_to "Log in", root_path %></li>
           <% end %>
       </ul>
     </div>

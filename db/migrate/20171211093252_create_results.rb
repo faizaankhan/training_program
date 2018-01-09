@@ -4,7 +4,7 @@ class CreateResults < ActiveRecord::Migration[5.1]
       t.integer 'user_id', null: false
       t.integer 'exam_id', null: false
       t.string 'answersheet'
-      t.integer 'marks'
+      t.float 'marks'
       t.string 'results'
       t.text 'comments'
       t.timestamps
