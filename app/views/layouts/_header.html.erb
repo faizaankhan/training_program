@@ -1,13 +1,21 @@
 <header class="navbar navbar-inverse">
   <div class="container">
-    <%if logged_in? && current_user.admin_user==true %>
-    <%= link_to "Training Program Management", dash_path, id: "logo" %>
-    <%elsif logged_in?%>
-    <%= link_to "Training Program Management", home_path, id: "logo" %>
-    <%else%>
-    <%= link_to "Training Program Management", login_path, id: "logo" %>
-    <%end%>
     <nav>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%if logged_in? && current_user.admin_user==true %>
+        <%= link_to "Training@Kreeti", dash_path, id: "logo" %>
+      <%elsif logged_in?%>
+        <%= link_to "Training@Kreeti", home_path, id: "logo" %>
+      <%else%>
+        <%= link_to "Training@Kreeti", login_path, id: "logo" %>
+      <%end%>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <%if logged_in? && current_user.admin_user==true %>
         <li><%= link_to "Exams", exams_path %></li>
@@ -30,6 +38,7 @@
           <li><%= link_to "Log in", login_path %></li>
         <% end %>
       </ul>
+    </div>
     </nav>
   </div>
 </header>
