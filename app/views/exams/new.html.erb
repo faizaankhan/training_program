@@ -1,10 +1,9 @@
 <%= link_to("<< Back to List", exams_path, :class => 'back-link') %>
-
 <div class="form-group">
   <h2>Add New Exam</h2>
-    <%= form_for @exam do |f| %>
+  <%= form_for @exam do |f| %>
     <label for="usr">Exam Name:</label>
     <%= f.text_field(:exam_name) %>
     <%= f.submit("Create Exam") %>
-    <% end %>
+  <% end %>
 </div>

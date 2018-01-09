@@ -4,6 +4,7 @@ class Exam < ApplicationRecord
   has_many :questions,  dependent: :destroy
   accepts_nested_attributes_for :questions
   
+  validates :exam_name, presence: true
   scope :visible, lambda { where(:visible => true) }
   scope :invisible, lambda { where(:visible => false) }
   scope :sorted, lambda { order("created_at ASC") }

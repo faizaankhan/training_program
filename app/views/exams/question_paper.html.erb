@@ -1,9 +1,11 @@
 <%if logged_in? && current_user.admin_user==true %>
-<%= link_to("<< Back to List", exams_path, :class => 'back-link') %>
+  <%= link_to("<< Back to List", exams_path, :class => 'back-link') %>
 <%else%>
-<%= link_to("<< Back to Home", home_path, :class => 'back-link') %>
+  <%= link_to("<< Back to Home", home_path, :class => 'back-link') %>
 <%end%>
+
 <h2>Questions for <%=@exam.exam_name%> Examination </h2>
+
 <% @Qno=1 %>
 <% @exam.questions.each do |question| %>
   <p>

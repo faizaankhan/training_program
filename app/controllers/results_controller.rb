@@ -4,21 +4,22 @@ class ResultsController < ApplicationController
   before_action :exclusive_admin, only: [:index, :create, :update, :view, :destroy]
   
   def index
-    #retrieve the user
+    # retrieve the user
     puts params
     user = User.find(params[:user_id])
-    #Get all the exams associated with the user
+    # Get all the exams associated with the user
     @exams = user.exams
     @results = user.results
   end
+
   def show
   end
+
   def view
     puts "I reach here"
     @user = User.find(params[:user_id])
     @exam = Exam.find(params[:exam_id])
     @result = Result.where(exam_id: @exam.id).where(user_id: @user.id).take
-    
   end
 
   def new

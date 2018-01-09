@@ -1,16 +1,15 @@
 <%= link_to("<< Back to List", exams_path, :class => 'back-link') %>
 <h2>Questions for <%=@exam.exam_name%> Examination </h2>
-
-<h2>Questions</h2>
+<h3>Question</h3>
 <% @Qno=1 %>
 <% @exam.questions.each do |question| %>
   <div class="question-box">
-  <h4> Question No.:<%=@Qno%> </h4>
-  <div class="question">
-    <%= question.question_description %>
-    <%@Qno=@Qno+1%>
-  </div>
-  <%= link_to 'Remove', [question.exam, question], :class => 'btn btn-danger btn-sm',
+    <h4> Question No.:<%=@Qno%> </h4>
+    <div class="question">
+      <%= question.question_description %>
+      <%@Qno=@Qno+1%>
+    </div>
+    <%= link_to 'Remove', [question.exam, question], :class => 'btn btn-danger btn-sm',
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 
@@ -18,4 +17,6 @@
 <% end %>
 
 <h2>Add a question:</h2>
-<%= render 'questions/form' %>
+<div class="question-box">
+  <%= render 'questions/form' %>
+</div>

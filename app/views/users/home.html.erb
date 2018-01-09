@@ -1,5 +1,6 @@
 <div class="exams index">
   <h2>Associated Exams</h2>
+  <div class="table-responsive">
   <table class="table table-hover" summary="Exams Associated with the candidate">
     <tr class="header">
       <th>Exam Name</th>
@@ -8,21 +9,22 @@
       <th>Comments</th>
       <th>Appear</th>
     </tr>
+    
     <% @results.each do |result| %>
- 
-    <tr>
-      <td><%= result.exam.exam_name%></td>
-      <td><%= result.marks%></td>
-      <td><%= result.results%></td>
-      <td><%= result.comments%></td>
-      <td>
-      <%if result.attach.present?%>
-        <%=link_to "View Answersheet", result.attach.url, target: "_blank" , :class => 'btn btn-info' %>
-      <%else%>
-        <%= link_to("Appear Now", question_paper_exam_path(result.exam.id) , :class => "btn btn-primary") %>
-      <%end%>
-    </td>
-    </tr>
+      <tr>
+        <td><%= result.exam.exam_name%></td>
+        <td><%= result.marks%></td>
+        <td><%= result.results%></td>
+        <td><%= result.comments%></td>
+        <td>
+        <%if result.attach.present?%>
+          <%=link_to "View Answersheet", result.attach.url, target: "_blank" , :class => 'btn btn-info' %>
+        <%else%>
+          <%= link_to("Appear Now", question_paper_exam_path(result.exam.id) , :class => "btn btn-primary") %>
+        <%end%>
+        </td>
+      </tr>
     <% end %>
   </table>
+  </div>
 </div>

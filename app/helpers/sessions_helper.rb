@@ -18,6 +18,7 @@ module SessionsHelper
     def log_out
       session.delete(:user_id)
       @current_user = nil
+      flash[:info] = "Logged Out Successfully"
     end
 
     def logged_in_user
@@ -30,9 +31,9 @@ module SessionsHelper
     def exclusive_admin
         
       if current_user.admin_user == false
-        redirect_to login_path
+        # flash[:danger] = "Warning ! You don't have admin access !"
+        redirect_to home_path
       end
     end
-      
-    
+
 end

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
-  before_action :logged_in_user
-  before_action :exclusive_admin, only: [:index, :create, :delete, :destroy]
+  before_action :logged_in_user, only: [:index, :delete, :destroy, :update, :home, :dash]
+  before_action :exclusive_admin, only: [:index, :delete, :destroy, :dash]
   
   def index
     @users = User.sorted
@@ -68,6 +68,9 @@ class UsersController < ApplicationController
     user = User.find_by_id(@current_user.id)
     @exams = user.exams
     @results = user.results
+  end
+
+  def dash
   end
 
   private

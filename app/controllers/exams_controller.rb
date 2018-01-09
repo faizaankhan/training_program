@@ -1,5 +1,5 @@
 class ExamsController < ApplicationController
-  
+
   before_action :logged_in_user
   before_action :exclusive_admin, only: [:index, :create, :new, :associate, :destroy]
 
@@ -22,7 +22,6 @@ class ExamsController < ApplicationController
 
   def create
     @exam = Exam.new(allowed_params)
-
     if @exam.save
       flash[:notice] = 'Successfully created exam'
       redirect_to exams_path
@@ -35,7 +34,6 @@ class ExamsController < ApplicationController
   end
 
   def delete
-    
   end
 
   def destroy 

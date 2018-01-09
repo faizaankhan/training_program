@@ -1,7 +1,7 @@
 <%= form_with(model: [ @exam, @exam.questions.build ], local: true) do |form| %>
   <p>
     <%= form.label :question_description %><br>
-    <%= form.text_area :question_description, :cols => "100", :rows => "10" %>
+    <%= form.text_area :question_description, :rows => "10", :style => 'width:100%;' %>
   </p>
   <p>
     <%= form.submit %>

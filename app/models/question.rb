@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
-    belongs_to :exam
+  belongs_to :exam
 
-    validates :question_description, presence: true
-    validates :exam_id, presence: true
+  validates :question_description, presence: true
+  validates :exam_id, presence: true
 end

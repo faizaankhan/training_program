@@ -1,23 +1,18 @@
 <div class="exams index">
   <h2>List of Exams</h2>
-
   <table class="table table-hover" summary="Exams Created for Training Program">
-    
     <% @exams.each do |exam| %>
-    <tr>
-     
-      <td><%= link_to(exam.exam_name , question_paper_exam_path(exam.id) , :class => 'action view-question-paper') %></td>
-      <td class="btn-group">
-         <%# <div class="btn-group btn btn-primary"> %>
-        <%= link_to("Associate Candidates", associate_exam_path(exam.id) , :class => "btn btn-info") %>
-        <%= link_to("Make Question Paper", exam_path(exam.id) , :class => "btn btn-primary") %>
-        <%= link_to 'Delete Exam', exam_path(exam.id) , :class => "btn btn-danger",
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-      </td>
-    </tr>
+      <tr>
+        <td><%= link_to(exam.exam_name , question_paper_exam_path(exam.id) , :class => 'action view-question-paper') %></td>
+        <td class="btn-group">
+          <%= link_to("Associate Candidates", associate_exam_path(exam.id) , :class => "btn btn-info") %>
+          <%= link_to("Make Question Paper", exam_path(exam.id) , :class => "btn btn-primary") %>
+          <%= link_to 'Delete Exam', exam_path(exam.id) , :class => "btn btn-danger",
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
     <% end %>
   </table>
-
   <%= link_to("Add New Exam", new_exam_path , :class => 'btn btn-primary') %>
 </div>
