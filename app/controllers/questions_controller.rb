@@ -1,4 +1,8 @@
 class QuestionsController < ApplicationController
+  
+  before_action :logged_in_user
+  before_action :exclusive_admin, only: [:create, :destroy]
+
   def index
   end
 
@@ -10,22 +14,7 @@ class QuestionsController < ApplicationController
     @question = @exam.questions.create(question_params)
     redirect_to exam_path(@exam)
   end
-  # def new
-  #   @exam_id = params[:exam_id]
-  #   @exam_name = params[:exam_name]
-  #   @question = Question.new
-  # end
-
-  # def create
-  #   @question = Question.new(question_params)
-  #   if @question.save
-  #     flash[:notice] = "Question Added Successfully"
-  #     redirect_to new_question_path({ exam_id: @question.exam.id })
-  #   else
-  #     redirect_to(exams_path)
-  #   end
-  # end
-
+ 
   def edit
   end
 

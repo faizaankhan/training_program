@@ -1,16 +1,15 @@
-<%= link_to("<< Back to List", users_path, :class => 'back-link') %>
-
-
-<table class="table table-hover" summary="Exams Associated with the candidate">
+<div class="exams index">
+  <h2>Associated Exams</h2>
+  <table class="table table-hover" summary="Exams Associated with the candidate">
     <tr class="header">
       <th>Exam Name</th>
       <th>Marks</th>
       <th>Result</th>
       <th>Comments</th>
-      <th> Actions</th>
+      <th>Appear</th>
     </tr>
     <% @results.each do |result| %>
-    
+ 
     <tr>
       <td><%= result.exam.exam_name%></td>
       <td><%= result.marks%></td>
@@ -20,10 +19,10 @@
       <%if result.attach.present?%>
         <%=link_to "View Answersheet", result.attach.url, target: "_blank" , :class => 'btn btn-info' %>
       <%else%>
-        <%="-"%>
+        <%= link_to("Appear Now", question_paper_exam_path(result.exam.id) , :class => "btn btn-primary") %>
       <%end%>
-      <%= link_to("Update Result", view_user_results_path(user_id: result.user.id, exam_id: result.exam.id) , :class => 'btn btn-primary') %>
-      </td>
+    </td>
     </tr>
     <% end %>
   </table>
+</div>

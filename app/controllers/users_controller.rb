@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  
+  before_action :logged_in_user
+  before_action :exclusive_admin, only: [:index, :create, :delete, :destroy]
+  
   def index
     @users = User.sorted
     @candidates = User.where(admin_user: false)
@@ -20,6 +24,11 @@ class UsersController < ApplicationController
     if @candidate.save
       # If save succeeds, redirect to the index action
       flash[:notice] = "New Candidate Added Successfully"
+      #Will check if user is admin in session and if he is not then do the below 
+      #log_in @user
+      if !is_logged_in?
+        log_in @candidate
+      end
       redirect_to(users_path)
     else
       # If save fails, redisplay the form so user can fix problems
@@ -55,10 +64,17 @@ class UsersController < ApplicationController
     redirect_to(users_path)
   end
 
+  def home
+    user = User.find_by_id(@current_user.id)
+    @exams = user.exams
+    @results = user.results
+  end
+
   private
   
     def user_params
       #Whitelisting for strng parameters
-      params.require(:user).permit(:name, :email, :password, :qualification, :college, :stream, :phone)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :qualification, :college, :stream, :phone)
     end
+
 end

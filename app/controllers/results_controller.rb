@@ -1,4 +1,8 @@
 class ResultsController < ApplicationController
+  
+  before_action :logged_in_user
+  before_action :exclusive_admin, only: [:index, :create, :update, :view, :destroy]
+  
   def index
     #retrieve the user
     puts params

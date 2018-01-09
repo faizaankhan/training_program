@@ -1,0 +1,18 @@
+<div class=container>
+   <div class="row">
+    <div class="col-md-offset-4 col-md-4 col-sm-12 col-xs-12 login_box">
+      <%= form_for(:session, url: login_path) do |f| %>
+
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+        <br>
+        <%= f.submit "Log In", class: "col-md-offset-4 col-xs-offset-4 btn btn-lg btn-default" %>
+        <h4 class="col-md-offset-4 col-xs-offset-4"> or, new user?? </h4>
+        <%= link_to "Sign up",new_user_path, class: "col-md-offset-4 col-xs-offset-4 btn btn-lg btn-default" %>
+      <% end %>
+    </div>
+  </div>
+</div>

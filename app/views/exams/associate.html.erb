@@ -3,7 +3,7 @@
   <h2>Associate Candidates for <%=@exam.exam_name%> Examination </h2>
 
   <%= form_tag(results_path(exam_id: @exam.id), method: :post)  do  %>
-  <table class="listing" summary="Candidates Enrolled for Training Program">
+  <table class="table table-hover" summary="Candidates Enrolled for Training Program">
     <tr class="header">
       <th>Candidates</th>
       <th>Email</th>

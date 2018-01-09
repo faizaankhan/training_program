@@ -5,7 +5,7 @@
 
   <%= form_for @result, :html =>{ :multipart => true } do |f| %>
 
-    <table summary="Results form fields">
+    <table summary="Results form fields" class= "table table-hover">
       <tr>
         <th>Marks</th>
         <td><%= f.text_field(:marks) %></td>

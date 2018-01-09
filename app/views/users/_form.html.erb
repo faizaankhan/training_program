@@ -1,0 +1,56 @@
+<%= form_for @candidate do |f| %>
+    
+    <% if @candidate.errors.any? %>
+        <div id="error_explanation col-sm-offset-4" style="color: red;">
+          <h2>
+          <%= pluralize(@candidate.errors.count, "error") %> 
+          Prohibited from being saved:
+          </h2>
+          <ul>
+          <% @candidate.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <table summary="Candidates form fields" class ="table table-hover">
+      <tr>
+        <th>Name</th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+      <tr>
+        <th>Qualification</th>
+        <td><%= f.text_field(:qualification) %></td>
+      </tr>
+       <tr>
+        <th>College</th>
+        <td><%= f.text_field(:college) %></td>
+      </tr>
+       <tr>
+        <th>Stream</th>
+        <td><%= f.text_field(:stream) %></td>
+      </tr>
+       <tr>
+        <th>Phone Number</th>
+        <td><%= f.text_field(:phone) %></td>
+      </tr>
+      <tr>
+        <th>Email Id</th>
+        <td><%= f.text_field(:email) %></td>
+      </tr>
+      <tr>
+        <th>Password</th>
+        <td><%= f.password_field :password, placeholder: "should be atleast 6 characters"%></td>
+      </tr>
+      <tr>
+        <th>Confirm Password</th>
+        <td><%= f.password_field :password_confirmation, placeholder: "enter your password again:"%></td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Submit") %>
+    </div>
+
+  <% end %>

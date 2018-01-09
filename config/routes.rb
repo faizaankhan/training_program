@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+  get '/home', to: 'users#home'
+  get '/dash', to: 'users#dash'
+  get    '/signup',  to: 'users#new'
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
+
+
   resources :users do
     member do
       get :delete

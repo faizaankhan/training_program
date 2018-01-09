@@ -19,15 +19,15 @@ ActiveRecord::Schema.define(version: 20171221101725) do
   end
 
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "exam_id"
+    t.integer "exam_id", null: false
     t.text "question_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "results", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "user_id"
-    t.integer "exam_id"
+    t.integer "user_id", null: false
+    t.integer "exam_id", null: false
     t.string "answersheet"
     t.integer "marks"
     t.string "results"
@@ -41,10 +41,10 @@ ActiveRecord::Schema.define(version: 20171221101725) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name", limit: 25
+    t.string "name", null: false
     t.boolean "admin_user", default: false
-    t.string "email", default: "", null: false
-    t.string "password", limit: 40
+    t.string "email", null: false
+    t.string "password_digest", null: false
     t.string "qualification"
     t.string "college"
     t.string "stream"

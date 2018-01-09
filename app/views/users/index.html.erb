@@ -1,9 +1,8 @@
 <div class="candidates index">
   <h2>List of Candidates</h2>
 
-  <%= link_to("Add New Candidate", new_user_path , :class => 'action new') %>
-
-  <table class="listing" summary="Candidates Enrolled for Training Program">
+  <div class="table-responsive">
+  <table class="table table-hover" summary="Candidates Enrolled for Training Program">
     <tr class="header">
       <th>Candidates</th>
       <th>Email</th>
@@ -16,11 +15,11 @@
       <td><%= candidate.email %></td>
       <td><%= candidate.college %></td>
       <td class="actions">
-        <%= link_to("Edit", edit_user_path(candidate.id), :class => 'action edit') %>
-        <%= link_to("Delete", delete_user_path(candidate.id) , :class => 'action delete') %>
-        <%= link_to("Update Result", user_results_path(candidate.id) , :class => 'action delete') %>
+        <%= link_to("Results", user_results_path(candidate.id) , :class => 'btn btn-info') %>
       </td>
     </tr>
     <% end %>
   </table>
+  </div>
+  <%= link_to("Add New Candidate", new_user_path , :class => 'btn btn-primary') %>
 </div>

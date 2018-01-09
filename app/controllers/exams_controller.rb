@@ -1,4 +1,8 @@
 class ExamsController < ApplicationController
+  
+  before_action :logged_in_user
+  before_action :exclusive_admin, only: [:index, :create, :new, :associate, :destroy]
+
   def index
     @exams = Exam.sorted
     render('index')
