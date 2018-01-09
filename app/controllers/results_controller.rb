@@ -32,6 +32,9 @@ class ResultsController < ApplicationController
     @result = Result.find(params[:id])
     if @result.update_attributes(result_params)
       flash[:notice] = "Updation Successful."
+      UserMailer.send_result(@result).deliver_now
+      flash[:info] = "Email sent to Candidate"
+
       redirect_to(user_results_path(@result.user_id))
     else
       render('edit')

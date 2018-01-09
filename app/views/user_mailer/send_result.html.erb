@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1> Hi <%= @result.user.name %>!</h1>
+    <%if @result.results == "Pass"%>
+    <p>We are glad to inform you that you have qualified in <%=@result.exam.exam_name%> 
+    and you have secured <%=@result.marks%> 
+     </p>
+     <%elsif @result.results == "Fail"%>
+     <p>We are sorry to inform you that you have NOT qualified in <%=@result.exam.exam_name%> 
+    and you have secured <%=@result.marks%> 
+     </p>
+     <%end%>
+  </body>
+</html>
