@@ -27,7 +27,25 @@ module SessionsHelper
           redirect_to root_path
         end
     end
-      
+
+    def logged_out_user
+        if logged_in?
+          flash[:danger] = "You are already logged in"
+          if current_user.admin_user
+            redirect_to dash_path
+          else
+            redirect_to home_path
+          end
+        end
+    end
+
+    def sign_up_user
+        if (logged_in? && !current_user.admin_user)
+            flash[:danger] = "You are already logged in, can't signUp"
+            redirect_to home_path
+        end  
+    end
+
     def exclusive_admin
         
       if current_user.admin_user == false
@@ -35,5 +53,13 @@ module SessionsHelper
         redirect_to home_path
       end
     end
+
+    def exclusive_candidate
+        
+        if current_user.admin_user
+          flash[:danger] = "Warning ! Admin can't edit a candidate ! You are not supposed to do that!"
+          redirect_to dash_path
+        end
+      end
 
 end

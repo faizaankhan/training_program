@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   
   before_action :logged_in_user
-  before_action :exclusive_admin, only: [:create, :destroy]
+  before_action :exclusive_admin, only: [:create, :destroy,:index, :show, :edit, :delete]
 
   def index
   end

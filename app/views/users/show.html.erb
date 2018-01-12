@@ -37,8 +37,9 @@
       <td><%= @candidate.updated_at %></td>
     </tr>
   </table>
-  <%= link_to("Edit", edit_user_path(@candidate.id), :class => "btn btn-primary") %>
   <%if logged_in? && current_user.admin_user==true %>
     <%= link_to("Delete", delete_user_path(@candidate.id) , :class => "btn btn-danger") %>
+  <%else%>
+    <%= link_to("Edit", edit_user_path(@candidate.id), :class => "btn btn-primary") %>
   <%end%>
 </div>

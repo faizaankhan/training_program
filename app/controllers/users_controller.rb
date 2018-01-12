@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   
-  before_action :logged_in_user, only: [:index, :delete, :destroy, :update, :home, :dash]
+  before_action :logged_in_user, only: [:index, :show, :edit, :update, :delete, :destroy,  :home, :dash]
   before_action :exclusive_admin, only: [:index, :delete, :destroy, :dash]
-  
+  before_action :sign_up_user, only: [:create, :new]
+  before_action :exclusive_candidate, only: [:edit, :update]
+
   def index
     @users = User.sorted
     @candidates = User.where(admin_user: false)
