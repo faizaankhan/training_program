@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <% @candidates.each do |candidate| %>
+    <div class="x-panel">
+      
+      <div class="x-title">
+        <%= link_to user_results_path(candidate.id),:class => "user-title" do %>
+        <i class="glyphicon glyphicon-user"></i>
+        <%=candidate.name%>
+        <% end %>
+      </div>
+      
+      <div class="x-content">
+        <table class="table table-striped">
+          <tbody>
+            <% candidate.exams.each do |exam| %>
+            <tr>
+              <td><%= exam.exam_name %></td>
+              <td><%= exam.results.find_by(user_id: candidate.id).marks%></td>
+            </tr>
+            <%end%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <%end%>
+  </div>
+</div>

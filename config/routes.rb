@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get '/home', to: 'users#home'
   get '/dash', to: 'users#dash'
+  get '/summary', to: 'users#summary'
   get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'

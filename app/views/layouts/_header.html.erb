@@ -18,9 +18,12 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <%if logged_in? && current_user.admin_user==true %>
+          <li><%= link_to "Home", dash_path %></li>
           <li><%= link_to "Exams", exams_path %></li>
           <li><%= link_to "Candidates", users_path %></li>
+          <li><%= link_to "Summary", summary_path %></li>
         <%elsif logged_in?%>
+          <li><%= link_to "Home", home_path %></li>
           <li><%= link_to "Profile", user_path(current_user.id) %></li>
         <%end%>
           <% if logged_in? %>
