@@ -1,7 +1,7 @@
 class ExamsController < ApplicationController
 
   before_action :logged_in_user
-  before_action :exclusive_admin, only: [:index, :show, :edit, :delete, :create, :new, :associate, :destroy]
+  before_action :exclusive_admin, only: [:index, :show, :edit, :update, :delete, :create, :new, :associate, :destroy]
 
   def index
     @exams = Exam.sorted
