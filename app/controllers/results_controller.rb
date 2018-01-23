@@ -6,10 +6,10 @@ class ResultsController < ApplicationController
   def index
     # retrieve the user
     puts params
-    user = User.find(params[:user_id])
+    @user = User.find(params[:user_id])
     # Get all the exams associated with the user
-    @exams = user.exams
-    @results = user.results
+    @exams = @user.exams
+    @results = @user.results
   end
 
   def show
@@ -45,6 +45,16 @@ class ResultsController < ApplicationController
   def delete 
   end
   
+  def disassociate
+    puts params[:exam_id]
+    puts params[:candidate_id]
+    @result = Result.where('exam_id=? AND user_id=?',params[:exam_id],params[:candidate_id]).first
+    @result.destroy
+    # @result = Result.find(params[:id])
+    # @result.destroy
+    redirect_to (associate_exam_path(params[:exam_id]))
+  end
+
   def create 
     puts params[:exam_id]
       params[:a_candidate].each do |candidate_id|
@@ -59,7 +69,7 @@ class ResultsController < ApplicationController
           puts "Created new"
         end
       end
-      redirect_to exams_path
+      redirect_to (associate_exam_path(params[:exam_id]))
   end
 
   private

@@ -1,5 +1,5 @@
 <%= link_to("<< Back to List", exams_path, :class => 'back-link') %>
-<h2>Questions for <%=@exam.exam_name%> Examination </h2>
+<h2>Questions for <strong> <%=@exam.exam_name%> </strong> Examination </h2>
 <h3>Question</h3>
 <% @Qno=1 %>
 <% @exam.questions.each do |question| %>

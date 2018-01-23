@@ -1,4 +1,11 @@
-<%= link_to("<< Back to List of Candidates", users_path, :class => 'back-link') %>
+<%= link_to("<< List of Candidates", users_path, :class => 'back-link') %>
+<h3> 
+  Candidate :
+  <%= link_to user_path(@user.id),:class => "user-title" do %>
+    <i class="glyphicon glyphicon-user"></i>
+    <%=@user.name%>
+  <% end %>
+</h3>
 <div class="table-responsive">
   <table class="table table-hover" summary="Exams Associated with the candidate">
     <tr class="header">

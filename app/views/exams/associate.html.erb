@@ -1,6 +1,6 @@
 <%= link_to("<< Back to List", exams_path, :class => 'back-link') %>
 <div class="associate">
-  <h2>Associate Candidates for <%=@exam.exam_name%> Examination </h2>
+  <h2>Associate Candidates for <strong> <%=@exam.exam_name%> </strong> Examination </h2>
   <%= form_tag(results_path(exam_id: @exam.id), method: :post)  do  %>
     <div class="table-responsive">
       <table class="table table-hover" summary="Candidates Enrolled for Training Program">
@@ -10,30 +10,28 @@
           <th>College</th>
           <th>Select</th>
         </tr>
-    
-        <% @flag=1 %>
         <% @candidates.each do |candidate| %>
           <% @c = candidate.results %>
-          <% if ((@c.where(:exam_id => @exam.id)).empty?)%>
-            <% @flag=0 %>
-            <tr>
+          <tr>
               <td><%= candidate.name %></td>
               <td><%= candidate.email %></td>
               <td><%= candidate.college %></td>
               <td class="actions">
-                <input type="checkbox" name="a_candidate[]" value="<%=candidate.id%>">
+                <% if ((@c.where(:exam_id => @exam.id)).empty?)%>
+                  <input type="checkbox" name="a_candidate[]" value="<%=candidate.id%>">
+                <%else%>
+                  <%= link_to disassociate_result_path(candidate_id: candidate.id, exam_id: @exam.id),
+                    data: { confirm: 'Are you sure?' } do %>
+                    <i class="glyphicon glyphicon-remove"></i>
+                  <% end %>
+                <%end%>
               </td>
-            </tr>
-          <%end%>
+          </tr>
         <% end %>
       </table>
-      <%if (@flag==1)%>
-        <p> All Candidates are associated already </p>
-      <%else%>
-        <div class="form-buttons">
-          <%= submit_tag 'Asscoiate' %>
-        </div>
-      <%end%>
+      <div class="form-buttons">
+        <%= submit_tag 'Asscoiate' %>
+      </div>
     </div>
   <% end %>
 </div>

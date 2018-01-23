@@ -8,6 +8,6 @@ class UserMailer < ApplicationMailer
   def send_result(result)
     @result=result
     @greeting = "Hi"
-    mail to: result.user.email, subject: "Account activation"
+    mail to: result.user.email, subject: "Result"
   end
 end

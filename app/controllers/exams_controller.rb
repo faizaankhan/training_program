@@ -31,6 +31,17 @@ class ExamsController < ApplicationController
   end
 
   def edit
+    @exam = Exam.find(params[:id])
+  end
+
+  def update
+        @exam = Exam.find(params[:id])
+        if @exam.update_attributes(allowed_params)
+          flash[:notice] = "Updation Successful."
+          redirect_to exams_path
+        else
+          render('edit')
+        end
   end
 
   def delete

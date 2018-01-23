@@ -1,6 +1,19 @@
-<%= link_to("<< Back to List", results_path(user_id: @user.id), :class => 'back-link') %>
+<%= link_to("<< Result List", results_path(user_id: @user.id), :class => 'back-link') %>
 <div class="Result Update">
-  <h2>Update Result of <%@user.name%> for <%@exam.exam_name%> Examination</h2>
+  <h2>Update Result </h2>
+  <h3> 
+    Candidate :
+    <%= link_to user_path(@result.user.id) do %>
+      <i class="glyphicon glyphicon-user"></i>
+      <%=@result.user.name%>
+    <% end %>
+  </h3>
+  <h3> 
+    Examination :
+    <%= link_to question_paper_exam_path(@result.exam.id) do %>
+      <%=@result.exam.exam_name%>
+    <% end %>
+  </h3>
   <%= form_for @result, :html =>{ :multipart => true } do |f| %>
     <table summary="Results form fields" class= "table table-hover">
       <tr>

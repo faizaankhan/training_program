@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   resources :results do
     member do
       get :delete
+      get :disassociate
     end
   end
 
