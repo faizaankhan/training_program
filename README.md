@@ -5,14 +5,14 @@ Training Program System -
 
 User should be able to maintain list of candidates and their marks in various exams.
 
-    User should be able to add / edit candidate names, the qualification that they have achieved or 
-    pursuing like B.E., B.Tech, M.C.A. etc, their college name, their streams like EE, CS, IT, Mechanical, Civil. etc. 
+User should be able to add / edit candidate names, the qualification that they have achieved or 
+pursuing like B.E., B.Tech, M.C.A. etc, their college name, their streams like EE, CS, IT, Mechanical, Civil. etc. 
 
 
-    User should be also be able to create exams and will be able to associate them with the candidates.
+User should be also be able to create exams and will be able to associate them with the candidates.
 
 
-    Each exam will have an exam name like ‘Quantitative Aptitude’, ‘English’, ‘Programming’, etc.
+Each exam will have an exam name like ‘Quantitative Aptitude’, ‘English’, ‘Programming’, etc.
 
 
     User should also be able to see marks obtained by the candidate in a particular exam.
