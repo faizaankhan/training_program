@@ -35,6 +35,7 @@ function editQuestion(){
      }   
     )
 }
-window.onload = function() {
+
+$(document).on('turbolinks:load', function() {
     $('.edit').click(editQuestion)
-}
+});
