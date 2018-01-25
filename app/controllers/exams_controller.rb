@@ -23,7 +23,7 @@ class ExamsController < ApplicationController
   def create
     @exam = Exam.new(allowed_params)
     if @exam.save
-      flash[:notice] = 'Successfully created exam'
+      flash[:success] = 'Successfully created exam'
       redirect_to exams_path
     else
       render :new
@@ -37,7 +37,7 @@ class ExamsController < ApplicationController
   def update
         @exam = Exam.find(params[:id])
         if @exam.update_attributes(allowed_params)
-          flash[:notice] = "Updation Successful."
+          flash[:success] = "Updation Successful."
           redirect_to exams_path
         else
           render('edit')

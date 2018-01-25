@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     # Save the object
     if @candidate.save
       # If save succeeds, redirect to the index action
-      flash[:notice] = "New Candidate Added Successfully"
+      flash[:success] = "New Candidate Added Successfully"
       #Will check if user is admin in session and if he is not then do the below 
       #log_in @user
       if !is_logged_in?
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     # Save the object
     if @candidate.update_attributes(user_params)
       # If save succeeds, redirect to the index action
-      flash[:notice] = "Updation Successful."
+      flash[:success] = "Updation Successful."
       redirect_to(user_path(@candidate))
     else
       # If save fails, redisplay the form so user can fix problems

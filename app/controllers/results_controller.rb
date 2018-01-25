@@ -32,7 +32,7 @@ class ResultsController < ApplicationController
   def update
     @result = Result.find(params[:id])
     if @result.update_attributes(result_params)
-      flash[:notice] = "Updation Successful."
+      flash[:success] = "Updation Successful."
       UserMailer.send_result(@result).deliver_now
       flash[:info] = "Email sent to Candidate"
 
