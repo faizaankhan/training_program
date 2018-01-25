@@ -56,6 +56,10 @@ class ExamsController < ApplicationController
   def associate
     @candidates = User.where(admin_user: false)
     @exam = Exam.find(params[:id])
+    if (@exam.questions.empty?)
+      flash[:info] = "Question Paper is not yet ready"
+      redirect_to exams_path
+    end
   end
 
   private

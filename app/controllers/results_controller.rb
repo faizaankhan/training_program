@@ -55,7 +55,7 @@ class ResultsController < ApplicationController
     redirect_to (associate_exam_path(params[:exam_id]))
   end
 
-  def create 
+  def create
     puts params[:exam_id]
       params[:a_candidate].each do |candidate_id|
         puts candidate_id
