@@ -32,7 +32,11 @@ Rails.application.routes.draw do
 
     end
 
-    resources :questions
+    resources :questions do
+      member do
+        post :update_question
+      end
+    end
   end
 
   resources :results do

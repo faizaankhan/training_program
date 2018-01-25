@@ -8,9 +8,9 @@
 
 <% @Qno=1 %>
 <% @exam.questions.each do |question| %>
-  <p>
+  <pre>
     <%=@Qno%>
     <%= question.question_description %>
     <%@Qno=@Qno+1%>
-  </p>
+  </pre>
 <% end %>
