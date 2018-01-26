@@ -4,6 +4,8 @@
     <%= form.text_area :question_description, :rows => "10", :style => 'width:100%;' %>
   </p>
   <p>
-    <%= form.submit %>
+    <div class="form-buttons">
+    <%= form.submit 'Add Question', class: 'btn btn-primary' %>
+    </div>
   </p>
 <% end %>

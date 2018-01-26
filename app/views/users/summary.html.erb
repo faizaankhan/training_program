@@ -9,24 +9,31 @@
         <%=candidate.name%>
         <% end %>
       </div>
-      
       <div class="x-content">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Exam Name</th>
-              <th>Marks Obtained</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% candidate.exams.each do |exam| %>
-            <tr>
-              <td><%= exam.exam_name %></td>
-              <td><%= exam.results.find_by(user_id: candidate.id).marks%></td>
-            </tr>
-            <%end%>
-          </tbody>
-        </table>
+        <%if(candidate.exams.empty?)%>
+          <p> There are no exams associated for this candidate for now </p>
+        <%else%>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Exam Name</th>
+                <th>Marks Obtained</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% candidate.exams.each do |exam| %>
+              <tr>
+                <td><%= exam.exam_name %></td>
+                <%if (exam.results.find_by(user_id: candidate.id).marks)==nil%>
+                  <td>Marks Not Yet Updated</td>
+                <%else%>
+                  <td><%= exam.results.find_by(user_id: candidate.id).marks%></td>
+                <%end%>
+              </tr>
+              <%end%>
+            </tbody>
+          </table>
+        <%end%>
       </div>
     </div>
     <%end%>

@@ -2,10 +2,10 @@
 <div class="candidate delete">
   <h2>Delete Candidate</h2>
   <%= form_for(@candidate, :method => 'delete') do |f| %>
-    <p>Are you sure you want to permanently delete the candidate? This will cause the deletion of all related data</p>
-    <p class="reference-name"><%= f.object.name %></p>
+    <h3>Are you sure you want to permanently delete the candidate? This will cause the deletion of all related data</h3>
+    <h4 class="reference-name">Student Name :<%= f.object.name %></h4>
     <div class="form-buttons">
-      <%= f.submit("Delete Candidate") %>
+      <%= f.submit "Delete Candidate", :class => 'btn btn-danger' %>
     </div>
   <% end %>
 </div>
