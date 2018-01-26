@@ -40,3 +40,19 @@ when that specific user logs in and will show it as long as the user stays logge
 14. Candidates will have an email field and they will get a notification whenever the marks for an exam has been added for them and whether they have passed/ failed the exam.
 
 15. The user can create question papers for the variety exams. Once start the exam,the candidate will be able to get the relevant exam question paper and complete the exam process.
+
+
+
+Clone the repository
+
+run "bundle install"
+
+run "rails db:migrate"
+
+run "rails db:seed" - optional
+
+run "rails s"
+
+Default Admin Account details
+
+Username : admin@kreeti.com password : password
