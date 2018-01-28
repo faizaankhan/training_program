@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :delete
+      get :change_password
+      patch :update_password
     end
 
     resources :results do

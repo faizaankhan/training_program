@@ -13,9 +13,9 @@ class User < ApplicationRecord
 
   validates :email, presence: true
   validates :email, presence: true, length: { maximum: 255 },format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false }
-  validates :password, presence: true, length: { minimum: 6 }
-  validates_confirmation_of :password
-  validates_presence_of :password_confirmation
+  validates :password, presence: true, length: { minimum: 6 }, unless: :skip_password_validation
+  validates_confirmation_of :password, unless: :skip_password_validation
+  validates_presence_of :password_confirmation, unless: :skip_password_validation
   validates :name, presence: true
   validates :phone, numericality: {only_integer: true}, length: {is: 10 , message: "length should be 10"} 
   
@@ -24,4 +24,6 @@ class User < ApplicationRecord
   scope :sorted, lambda { order("id ASC") }
   scope :newest_first, lambda { order("created_at DESC") }
   scope :search, lambda {|query| where(["name LIKE ?", "%#{query}%"]) }
+  
+  attr_accessor :skip_password_validation
 end

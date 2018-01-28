@@ -1,4 +1,8 @@
 <div class="Candidate Update">
   <h2>Update Candidate</h2>
-  <%= render "form" %>  
+  <%= render "form" %> 
+  <div>
+  <br> 
+  <%= link_to("Change Password", change_password_user_path(@candidate.id), :class => "btn btn-primary") %>
+  </div>
 </div>
