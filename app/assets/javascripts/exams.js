@@ -5,6 +5,8 @@ function editQuestion(){
         $(this).attr('disabled','disabled')
     })
 
+    $(this).off('click');
+    
     var examID = $('#exam_id').html();
     var questionBox = this.parentElement;
     var questionId = questionBox.id;
@@ -20,11 +22,12 @@ function editQuestion(){
     questionArea.remove().appendTo($wrapper).hide();
 
     // Build up the form:
+    $input.empty().append(questionArea.text().trim()).focus();
     $wrapper.append($form);
     $form.append($input);
     $form.append($hiddenInput);
     $form.append($csrf_token);
-    $input.val(questionArea.text().trim()).focus();
+    
     this.innerText='Save';
 
     //Submit the form:
