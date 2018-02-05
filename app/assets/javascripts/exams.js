@@ -22,7 +22,7 @@ function editQuestion(){
     questionArea.remove().appendTo($wrapper).hide();
 
     // Build up the form:
-    $input.empty().append(questionArea.text().trim()).focus();
+    $input.empty().append(questionArea.html().trim()).focus();
     $wrapper.append($form);
     $form.append($input);
     $form.append($hiddenInput);
