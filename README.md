@@ -56,3 +56,10 @@ run "rails s"
 Default Admin Account details
 
 Username : admin@kreeti.com password : password
+
+
+CONFIGURATION
+
+Rails  5.1.4
+Ruby 2.3
+MySql2
